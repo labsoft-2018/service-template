@@ -3,6 +3,7 @@
             [leiningen.core.main :as main]))
 
 (def render (renderer "labsoft-service"))
+(def identity-render (renderer "labsoft-service" identity))
 
 (defn labsoft-service
   "Generate a new labsoft micro-service"
@@ -15,6 +16,7 @@
               :namespace-set (str "'#{" namespace "}")}]
     (main/info "Generating fresh 'lein new' labsoft-service project.")
     (->files data
+             [".circleci/config.yml" (identity-render "circleci_config.yml")]
              ["README.md" (render "README.md" data)]
              ["project.clj" (render "project.clj" data)]
              [".gitignore" (render ".gitignore" data)]
