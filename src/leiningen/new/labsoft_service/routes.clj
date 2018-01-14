@@ -1,6 +1,7 @@
 (ns {{namespace}}.routes
   (:require [common-labsoft.pedestal.interceptors.auth :as int-auth]
             [common-labsoft.pedestal.interceptors.error :as int-err]
+            [common-labsoft.pedestal.interceptors.schema :as int-schema]
             [io.pedestal.http.route.definition :refer [defroutes]]
             [io.pedestal.http :as http]
             [io.pedestal.http.body-params :as body-params]))
@@ -15,5 +16,5 @@
                                   (body-params/body-params)
                                   http/json-body
                                   int-auth/auth
-                                  #_int-s/coerce-output]
+                                  int-schema/coerce-output]
               {:get [:hello-world hello-world]}]]])
