@@ -7,7 +7,7 @@
                                     :password :env/clojars_password}]]
   :plugins [[lein-midje "3.2.1"]]
   :dependencies [[org.clojure/clojure "1.9.0"]
-                 [labsoft-2018/common-labsoft "0.1.2-SNAPSHOT"]]
+                 [labsoft-2018/common-labsoft "0.2.0-SNAPSHOT"]]
   :resource-paths ["resources"]
   :aot [{{namespace}}.service]
   :main {{namespace}}.service)
