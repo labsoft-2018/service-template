@@ -3,6 +3,7 @@
   :url "https://github.com/labsoft-2018/labsoft-service-template"
   :deploy-repositories [["clojars" {:url      "https://clojars.org/repo"
                                     :username :env/clojars_username
-                                    :password :env/clojars_password}]]
+                                    :password :env/clojars_password
+                                    :sign-releases false}]]
   :license {}
   :eval-in-leiningen true)
