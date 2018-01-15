@@ -5,9 +5,8 @@
 version: 2
 jobs:
   build:
-    filters:
-      branches:
-        only: master
+    branches:
+      only: master
     docker:
       - image: circleci/clojure:lein-2.7.1
 
