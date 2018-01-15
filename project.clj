@@ -1,4 +1,4 @@
-(defproject labsoft-service/lein-template "0.5.1"
+(defproject labsoft-service/lein-template "0.5.2"
   :description "Template for creating microservices using common-labsoft"
   :url "https://github.com/labsoft-2018/labsoft-service-template"
   :deploy-repositories [["clojars" {:url      "https://clojars.org/repo"

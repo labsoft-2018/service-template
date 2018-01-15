@@ -17,30 +17,12 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - restore_cache:
-            keys:
-            - v1-dependencies-{{ checksum "project.clj" }}
-            - v1-dependencies-
-        - run: lein deps
-        - save_cache:
-            paths:
-              - ~/.m2
-            key: v1-dependencies-{{ checksum "project.clj" }}
       - run: lein midje
 
   build:
     <<: *defaults
     steps:
       - checkout
-      - restore_cache:
-            keys:
-            - v1-dependencies-{{ checksum "project.clj" }}
-            - v1-dependencies-
-        - run: lein deps
-        - save_cache:
-            paths:
-              - ~/.m2
-            key: v1-dependencies-{{ checksum "project.clj" }}
       - run: lein uberjar
       - setup_remote_docker:
           docker_layer_caching: true
