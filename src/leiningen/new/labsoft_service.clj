@@ -13,7 +13,8 @@
               :name (project-name name)
               :namespace sanitized-ns
               :sanitized (name-to-path sanitized-ns)
-              :namespace-set (str "'#{" namespace "}")}]
+              :namespace-set (str "'#{" namespace "}")
+              :http-port (+ 8001 (rand-int 999))}]
     (main/info "Generating fresh 'lein new' labsoft-service project.")
     (->files data
              [".circleci/config.yml" (identity-render "circleci_config.yml")]

@@ -1,4 +1,5 @@
 {
   "env": "prod",
-  "datomic-endpoint": "datomic:mem://{{namespace}}"
+  "datomic-endpoint": "datomic:mem://{{namespace}}",
+  "port": {{http-port}}
 }
