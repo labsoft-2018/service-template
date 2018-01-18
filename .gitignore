@@ -11,3 +11,4 @@ pom.xml.asc
 *.iml
 .DS_STORE
 *.idea
+/logs/**

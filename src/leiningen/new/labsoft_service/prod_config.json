@@ -1,5 +1,11 @@
 {
   "env": "prod",
   "datomic-endpoint": "datomic:mem://{{namespace}}",
-  "port": {{http-port}}
+  "port": {{http-port}},
+  "s3-auth": {
+    "bucket-name": "labsoft-secrets",
+    "region": "us-east-1"
+  },
+  "pub-key-path": "prod/pubkey.pem",
+  "priv-key-path": "prod/privkey.pem"
 }
