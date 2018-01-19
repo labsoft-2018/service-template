@@ -1,18 +1,19 @@
 (ns {{namespace}}.service
   (:gen-class)
   (:require [common-labsoft.system :as system]
-            [{{namespace}}.routes :refer [routes]]))
+            [{{namespace}}.components :as components]))
 
-(defn start [& args]
-  (system/bootstrap! {:config-name "dev_config.json"
-                      :routes routes}))
-(defn stop []
+(defn start! [& args]
+  (-> (components/base-system "dev_config.json")
+      (system/bootstrap!)))
+
+(defn stop! []
   (system/stop!))
 
-(defn restart []
-  (stop)
-  (start))
+(defn restart! []
+  (stop!)
+  (start!))
 
 (defn -main [& args]
-  (system/bootstrap! {:config-name "prod_config.json"
-                      :routes routes}))
+  (-> (components/base-system "prod_config.json")
+      (system/bootstrap!)))
