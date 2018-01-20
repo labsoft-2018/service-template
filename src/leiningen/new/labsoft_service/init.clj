@@ -1,4 +1,4 @@
-(ns {{namespace}}.aux.test-helpers
+(ns {{namespace}}.aux.init
   (:require [io.pedestal.http :as http]
             [io.pedestal.test :refer [response-for]]
             [{{namespace}}.service :as service]

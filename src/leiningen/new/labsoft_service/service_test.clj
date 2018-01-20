@@ -1,8 +1,8 @@
 (ns {{namespace}}.service-test
   (:require [midje.sweet :refer :all]
-            [{{namespace}}.aux.test-helpers :as th]))
+            [{{namespace}}.aux.init :as init]))
 
-(def service (th/test-service))
+(def service (init/test-service))
 
 (fact "Http Test"
   (th/request! service :get "/") => {:res "Hello, World!"})
