@@ -1,8 +1,8 @@
 (ns {{namespace}}.service-test
   (:require [midje.sweet :refer :all]
-            [{{namespace}}.aux.init :as init]))
+            [{{namespace}}.service :as ser]
+            [common-labsoft.test-helpers :as th]))
 
-(def service (init/test-service))
-
-(fact "Http Test"
-  (th/request! service :get "/") => {:res "Hello, World!"})
+(th/with-service [ser/start! ser/stop!] [system service]
+ (fact "Http Test"
+   (th/request! service :get "/") => {:res "Hello, World!"}))

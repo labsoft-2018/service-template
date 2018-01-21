@@ -28,7 +28,6 @@
              ["src/{{sanitized}}/db/datomic/config.clj" (render "datomic_config.clj" data)]
              ["src/{{sanitized}}/diplomat/sqs.clj" (render "sqs.clj" data)]
              ["test/{{sanitized}}/service_test.clj" (render "service_test.clj" data)]
-             ["test/{{sanitized}}/aux/init.clj" (render "init.clj" data)]
              ["resources/logback.xml" (render "logback.xml" data)]
              ["resources/dev_config.json" (render "dev_config.json" data)]
              ["resources/prod_config.json" (render "prod_config.json" data)])))
