@@ -21,4 +21,5 @@
     :token (component/using (components.token/new-token) [:config :s3-auth])
     :crypto (component/using (components.crypto/new-crypto) [:config])
     :sqs (component/using (components.sqs/new-sqs sqs/settings) [:config])
+    :http (component/using (component.http/new-http-client) [:config :token])
     :webapp (component/using (components.webapp/new-webapp) [:config :datomic :token :crypto :sqs])))
