@@ -5,12 +5,20 @@
 (def render (renderer "labsoft-service"))
 (def identity-render (renderer "labsoft-service" identity))
 
+(defn fixed-length-password
+  ([] (fixed-length-password 8))
+  ([n]
+   (let [chars (map char (range 33 127))
+         password (take n (repeatedly #(rand-nth chars)))]
+     (reduce str password))))
+
 (defn labsoft-service
   "Generate a new labsoft micro-service"
   [name]
   (let [sanitized-ns (sanitize-ns name)
         data {:raw-name name
               :name (project-name name)
+              :password (fixed-length-password 30)
               :namespace sanitized-ns
               :sanitized (name-to-path sanitized-ns)
               :namespace-set (str "'#{" namespace "}")
