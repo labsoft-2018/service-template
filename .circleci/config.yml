@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  publish:
     branches:
       only: master
     docker:
@@ -20,3 +20,31 @@ jobs:
     steps:
       - checkout
       - run: lein deploy clojars
+
+  vsts-push:
+    docker:
+      - image: circleci/clojure:lein-2.7.1
+    working_directory: ~/repo
+    steps:
+      - add_ssh_keys
+      - checkout
+      - run: ssh-keyscan vs-ssh.visualstudio.com >> ~/.ssh/known_hosts
+      - run: git push ssh://2018-PCS2044-LAMBDA@vs-ssh.visualstudio.com:22/quack-pack/_ssh/service-template master
+
+
+workflows:
+  version: 2
+  test-publish:
+    jobs:
+      - vsts-push:
+          filters:
+            branches:
+              only: master
+          requires:
+            - test
+      - publish:
+          filters:
+            branches:
+              only: master
+          requires:
+            - vsts-push
